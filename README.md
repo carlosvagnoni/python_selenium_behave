@@ -43,10 +43,10 @@ This suite of tests is specifically designed to validate and test features on th
 - **pages:** Directory containing Page Object Model classes.
 
 - **utils:** Directory containing common utilities for tests.
-  - **allure_reports.py:** Generating reports using Allure.
+  - **allure_reports.py:** Method that attaches a screenshot to an Allure report..
   - **asserts.py:** Custom assertion functions.
   - **drivers.py:** Configuration and management of Selenium drivers.
-  - **exceptions.py:** Custom exception classes.
+  - **exceptions.py:** Decorator to handle common Selenium exceptions.
   - **page_object.py:** Definition of the base structure of the Page Object Model.
 
 ## Installation 🛠️
