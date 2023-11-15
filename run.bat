@@ -1,0 +1,13 @@
+@echo off
+
+echo Activating the virtual environment...
+call venv\Scripts\activate
+
+echo Running Behave...
+behave -f allure_behave.formatter:AllureFormatter -o target\reports\allure_result
+
+echo Generating Allure reports...
+allure serve target\reports\allure_result
+
+echo Deactivating the virtual environment...
+deactivate

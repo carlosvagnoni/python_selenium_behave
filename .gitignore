@@ -1,0 +1,14 @@
+.target/
+__pycache__/
+
+### PyCharm ###
+.idea/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Virtual Env ###
+.venv/
