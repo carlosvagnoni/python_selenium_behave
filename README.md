@@ -8,9 +8,8 @@ This suite of tests is specifically designed to validate and test features on th
 
 ![python_selenium_behave](https://github.com/carlosvagnoni/python_selenium_behave/assets/106275103/b8213b2a-cde3-404f-96d7-84b45237a999)
 
-## Tabla de Contenidos 📑
-- [Testing demoblaze.com Features](#testing-demoblazecom-features-)
-- [Tabla de Contenidos](#tabla-de-contenidos-)
+## Table of Contents 📑
+
 - [Requirements](#requirements-)
 - [Folder Structure](#folder-structure-)
 - [Installation](#installation-)
