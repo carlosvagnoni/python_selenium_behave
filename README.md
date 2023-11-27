@@ -1,6 +1,6 @@
-# Automated Testing with Python, Selenium, and Behave 🤖🐍
+# Automated Web Testing with Python, Selenium, and Behave 🤖🐍
 
-This project provides a structure and tools for automated testing using Python, Selenium, and Behave, following Behavior-Driven Development (BDD) best practices and employing the Page Object Model design pattern.
+This project provides a structure and tools for automated web testing using Python, Selenium, and Behave, following Behavior-Driven Development (BDD) best practices and employing the Page Object Model design pattern.
 
 ## Testing demoblaze.com Features 🧪
 
