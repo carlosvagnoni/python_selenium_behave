@@ -9,15 +9,14 @@ This suite of tests is specifically designed to validate and test features on th
 ![python_selenium_behave](https://github.com/carlosvagnoni/python_selenium_behave/assets/106275103/b8213b2a-cde3-404f-96d7-84b45237a999)
 
 ## Table of Contents 📑
+- [Requirements](#requirements)
+- [Folder Structure](#folder-structure)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Test Execution](#test-execution)
+- [Contact](#contact)
 
-- [Requirements](#requirements-)
-- [Folder Structure](#folder-structure-)
-- [Installation](#installation-)
-- [Configuration](#configuration-)
-- [Test Execution](#test-execution-)
-- [Contact](#contact-)
-
-## Requirements 📋
+## <a id="requirements">Requirements 📋</a>
 
 - Python 3.10.11
 - Selenium 4.15.2
@@ -25,7 +24,7 @@ This suite of tests is specifically designed to validate and test features on th
 - Allure-Behave 2.13.2
 - Webdriver Manager 4.0.1
 
-## Folder Structure 📂
+## <a id="folder-structure">Folder Structure 📂</a>
 
 - **behave.ini:** Configuration file for Behave.
 - **config.json:** Configuration file for variable data.
@@ -48,7 +47,7 @@ This suite of tests is specifically designed to validate and test features on th
   - **exceptions.py:** Decorator to handle common Selenium exceptions.
   - **page_object.py:** Definition of the base structure of the Page Object Model.
 
-## Installation 🛠️
+## <a id="installation">Installation 🛠️</a>
 
 1. Clone this repository:
 
@@ -63,12 +62,12 @@ This suite of tests is specifically designed to validate and test features on th
     pip install -r requirements.txt
     ```
 
-## Configuration ⚙️
+## <a id="configuration">Configuration ⚙️</a>
 
 - Make sure you have a browser installed and configured in the script (Chrome, Edge, or Firefox).
 - You can configure the config.json file to adjust parameters such as the base URL(url) or the desired browser to use(driver).
 
-## Test Execution ▶️
+## <a id="test-execution">Test Execution ▶️</a>
 
 Run all the tests:
 
@@ -87,7 +86,7 @@ allure serve target\reports\allure_result
 - Set up the respective environment variables beforehand.
 - On Windows environments, you can directly execute the `run.bat` file.
 
-## Contact 📧
+## <a id="contact">Contact 📧</a>
 
 If you have any questions or suggestions, feel free to contact me through my social media accounts.
 
