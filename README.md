@@ -1,6 +1,9 @@
-# Automated Web Testing with Python, Selenium, and Behave 🤖🐍
+# Automated Web Testing with Python, Selenium, and Behave
+![Static Badge](https://img.shields.io/badge/Python-logo?style=for-the-badge&logo=python&logoColor=rgb(255%2C%20221%2C%2084)&labelColor=rgb(61%2C%20121%2C%20170)&color=rgb(22%2C%2027%2C%2034))
+![Static Badge](https://img.shields.io/badge/Selenium-logo?style=for-the-badge&logo=selenium&logoColor=white&labelColor=rgb(0%2C%20174%2C%200)&color=rgb(22%2C%2027%2C%2034))
+![Static Badge](https://img.shields.io/badge/Behave-logo?style=for-the-badge&logo=cucumber&logoColor=black&labelColor=rgb(35%2C%20217%2C%20108)&color=rgb(22%2C%2027%2C%2034))
 
-This project provides a structure and tools for automated web testing using Python, Selenium, and Behave, following Behavior-Driven Development (BDD) best practices and employing the Page Object Model design pattern.
+This project offers a framework and tools for automated web testing using Python, Selenium, and Behave, following Behavior-Driven Development (BDD) best practices and employing the Page Object Model design pattern.
 
 ## Testing demoblaze.com Features 🧪
 
