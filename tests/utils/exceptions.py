@@ -1,54 +1,50 @@
 import logging
-from selenium.common import NoSuchElementException, StaleElementReferenceException, ElementNotVisibleException, \
-    ElementNotInteractableException, ElementClickInterceptedException, WebDriverException, TimeoutException, \
-    NoAlertPresentException, UnexpectedAlertPresentException
+from selenium.common import (
+    NoSuchElementException,
+    StaleElementReferenceException,
+    ElementNotVisibleException,
+    ElementNotInteractableException,
+    ElementClickInterceptedException,
+    WebDriverException,
+    TimeoutException,
+    NoAlertPresentException,
+    UnexpectedAlertPresentException
+)
 
+def handle_exception(logger, exception):
+    logger.error(exception)
+    raise
 
 def exception_handler(func):
     """
-    Decorator to handle common Selenium exceptions that may occur during function execution.
-    Args:
-        func: The function to be decorated.
-    Returns:
-        function: Decorated function with exception handling.
-    """
+        Decorator to handle common Selenium exceptions that may occur during function execution.
+        Args:
+            func: The function to be decorated.
+        Returns:
+            function: Decorated function with exception handling.
+        """
     def inner_function(*args, **kwargs):
         try:
             return func(*args, **kwargs)
-        except NoSuchElementException as e:
-            logging.error("Element not found")
-            logging.error(e)
-            raise
-        except StaleElementReferenceException as e:
-            logging.error("Element not visible")
-            logging.error(e)
-            raise
-        except ElementNotVisibleException as e:
-            logging.error("Element not visible")
-            logging.error(e)
-            raise
-        except ElementNotInteractableException as e:
-            logging.error("Element not interactable")
-            logging.error(e)
-            raise
-        except ElementClickInterceptedException as e:
-            logging.error("Element click intercepted")
-            logging.error(e)
-            raise
-        except TimeoutException:
-            logging.error("Timeout expired")
-            raise
-        except NoAlertPresentException as e:
-            logging.error("Alert not found.")
-            logging.error(e)
-            raise
-        except UnexpectedAlertPresentException as e:
-            logging.error("Unexpected alert.")
-            logging.error(e)
-            raise
-        except WebDriverException as e:
-            logging.error("WebDriver exception occurred:")
-            logging.error(e)
-            raise
-
+        except (
+            NoSuchElementException,
+            StaleElementReferenceException,
+            ElementNotVisibleException,
+            ElementNotInteractableException,
+            ElementClickInterceptedException,
+            TimeoutException,
+            NoAlertPresentException,
+            UnexpectedAlertPresentException,
+            WebDriverException
+        ) as e:
+            logger = logging.getLogger(__name__)
+            if isinstance(e, WebDriverException):
+                logger.error("WebDriver exception occurred:")
+            elif isinstance(e, TimeoutException):
+                logger.error("Timeout expired")
+            elif isinstance(e, NoAlertPresentException):
+                logger.error("Alert not found.")
+            else:
+                logger.error(f"Element {e.__class__.__name__} occurred")
+            handle_exception(logger, e)
     return inner_function

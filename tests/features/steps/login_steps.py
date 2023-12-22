@@ -14,18 +14,18 @@ Steps Defined:
 This file encapsulates the step definitions for user login in a test scenario.
 """
 
-from behave import *
+from behave import given, when, step, then
 from tests.utils.allure_reports import allure_screenshot_as_png
 
 
 @given('the user has signed up with credentials: "{username}", "{password}".')
-def step_implX(context, username, password):
+def step_impl_signed_up(context, username, password):
     context.username = username
     context.password = password
 
 
 @given('the user is on the Login Page.')
-def step_implA(context):
+def step_impl_on_login_page(context):
     context.web.get(context.config['url'])
     context.base_page.click_login_button()
     context.base_page.wait_for_login_title()
@@ -34,18 +34,18 @@ def step_implA(context):
 
 
 @when("the user inputs their username and password into the form.")
-def step_implB(context):
+def step_impl_input_credentials(context):
     context.base_page.enter_login_username(context.username)
     context.base_page.enter_login_password(context.password)
 
 
 @step("the user clicks on the Submit button.")
-def step_implC(context):
+def step_impl_submit_login(context):
     context.base_page.submit_login()
 
 
 @then("the user should be logged in.")
-def step_impl(context):
+def step_impl_user_logged_in(context):
     expected_text = f"Welcome {context.username}"
     context.base_page.wait_for_logged_in_username(expected_text)
     context.base_page.verify_logged_in_username(expected_text)

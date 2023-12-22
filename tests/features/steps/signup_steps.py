@@ -13,12 +13,12 @@ Steps Defined:
 This file encapsulates the step definitions for user registration in a test scenario.
 """
 
-from behave import *
+from behave import given, when, step, then
 from tests.utils.allure_reports import allure_screenshot_as_png
 
 
 @given('the user is on the Registration Page.')
-def step_implX(context):
+def step_impl_registration_page(context):
     context.web.get(context.config['url'])
     context.base_page.click_signup_button()
     context.base_page.wait_for_signup_title()
@@ -27,7 +27,7 @@ def step_implX(context):
 
 
 @when('the user provides the following registration details: "{username}", "{password}".')
-def step_implA(context, username, password):
+def step_impl_provide_registration_details(context, username, password):
     context.username = username
     context.password = password
     context.base_page.enter_signup_username(context.username)
@@ -37,12 +37,12 @@ def step_implA(context, username, password):
 
 
 @step("the user clicks on the Sign Up button.")
-def step_implB(context):
+def step_impl_click_sign_up(context):
     context.base_page.submit_signup()
 
 
 @then("the user should be registered successfully.")
-def step_impl(context):
+def step_impl_user_registered(context):
     expected_text = 'Sign up successful.'
     context.base_page.switch_to_alert()
     context.base_page.verify_alert_successful_signup(expected_text)

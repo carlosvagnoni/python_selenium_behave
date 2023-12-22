@@ -13,13 +13,13 @@ class Drivers:
     """
     The Drivers class manages the creation of different WebDriver instances for various browsers like Chrome, Edge, and Firefox.
     """
-    def __init__(self, webdriver_type: str, isHeadless=False) -> None:
+    def __init__(self, webdriver_type: str, is_headless=False) -> None:
         """
         Initializes a Drivers instance using the provided WebDriver type, defaulting headless mode to false.
         :param webdriver_type: The type of WebDriver to initialize (e.g., "chrome", "edge", "firefox")
-        :param isHeadless: Flag indicating whether to run the browser in headless mode
+        :param is_headless: Flag indicating whether to run the browser in headless mode
         """
-        self.isHeadless = isHeadless
+        self.is_headless = is_headless
         self.driver = self.get_webdriver(webdriver_type)
 
     def get_webdriver(self, webdriver_type: str):
@@ -30,35 +30,35 @@ class Drivers:
         """
         match webdriver_type:
             case 'chrome':
-                return self.chromeDriver()
+                return self.chrome_driver()
             case 'edge':
-                return self.edgeDriver()
+                return self.edge_driver()
             case 'firefox':
-                return self.firefoxDriver()
+                return self.firefox_driver()
             case _:
                 raise ValueError(f"Unsupported webdriver_type: {webdriver_type}")
 
-    def chromeDriver(self):
+    def chrome_driver(self):
         # Creating an instance of Chrome
-        if self.isHeadless == True:
+        if self.is_headless:
             execution = ChromeOpt()
             execution.add_argument("--headless")
             return webdriver.Chrome(service=ChromiumService(ChromeDriverManager().install()), options=execution)
         else:
             return webdriver.Chrome(service=ChromiumService(ChromeDriverManager().install()))
 
-    def edgeDriver(self):
+    def edge_driver(self):
         # Creating an instance of Microsoft Edge
-        if self.isHeadless == True:
+        if self.is_headless:
             execution = EdgeOpt()
             execution.add_argument("--headless")
             return webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=execution)
         else:
             return webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
 
-    def firefoxDriver(self):
+    def firefox_driver(self):
         # Creating an instance of Firefox
-        if self.isHeadless == True:
+        if self.is_headless:
             execution = FirefoxOpt()
             execution.add_argument("--headless")
             return webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=execution)

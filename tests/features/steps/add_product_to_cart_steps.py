@@ -13,7 +13,7 @@ Steps Defined:
 This file encapsulates the step definitions for adding products to the cart in a test scenario.
 """
 
-from behave import *
+from behave import given, when, step, then
 from tests.utils.allure_reports import allure_screenshot_as_png
 from tests.utils.asserts import Expect as expect
 from tests.pages.home_page import HomePage
@@ -23,9 +23,9 @@ import logging
 
 
 @given("the user is browsing the list of available products.")
-def step_implX(context):
+def step_impl_browsing_products(context):
     try:
-        expect(context.web.current_url).toBeEqual('https://www.demoblaze.com/')
+        expect(context.web.current_url).to_be_equal('https://www.demoblaze.com/')
     except AssertionError as e:
         logging.error(e)
         raise AssertionError
@@ -36,14 +36,14 @@ def step_implX(context):
 
 
 @when('the user selects a product from the "laptops" category.')
-def step_implA(context):
+def step_impl_select_product(context):
     context.home_page.click_laptops_category_button()
     context.home_page.wait_for_macbook_button()
     context.home_page.click_macbook_button()
 
 
 @step("the user adds the selected product to the shopping cart.")
-def step_implB(context):
+def step_impl_add_to_cart(context):
     context.product_page.wait_for_macbook_title()
     context.product_page.click_add_to_cart()
     expected_text = 'Product added.'
@@ -52,7 +52,7 @@ def step_implB(context):
 
 
 @then("the product should be added to the user's shopping cart.")
-def step_impl(context):
+def step_impl_product_added(context):
     context.base_page.click_cart_button()
     context.cart_page.wait_for_macbook_title_in_cart()
     expected_text = 'MacBook air'
