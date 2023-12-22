@@ -49,7 +49,7 @@ class PageObject:
     @exception_handler
     def verify_element_text(self, element_locator: tuple[str, str], expected_text) -> None:
         try:
-            expect(self.web.find_element(*element_locator).text).toBeEqual(expected_text)
+            expect(self.web.find_element(*element_locator).text).to_be_equal(expected_text)
         except AssertionError:
             actual_text = self.web.find_element(*element_locator).text
             error_message = f"Expected text to be '{expected_text}', but was '{actual_text}'"
@@ -59,7 +59,7 @@ class PageObject:
     @exception_handler
     def verify_element_text_value(self, element_locator: tuple[str, str], expected_text) -> None:
         try:
-            expect(self.web.find_element(*element_locator).get_attribute('value')).toBeEqual(expected_text)
+            expect(self.web.find_element(*element_locator).get_attribute('value')).to_be_equal(expected_text)
         except AssertionError:
             actual_text = self.web.find_element(*element_locator).get_attribute('value')
             error_message = f"Expected text to be '{expected_text}', but was '{actual_text}'"
