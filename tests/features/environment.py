@@ -20,6 +20,8 @@ environment, managing the web driver, and logging events throughout the test exe
 """
 
 import json
+import os
+
 import allure
 from allure_commons.types import AttachmentType
 from selenium.common import UnexpectedAlertPresentException
@@ -29,6 +31,9 @@ import logging.config
 
 
 def before_all(context):
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    test_results_directory = os.path.join(current_directory, "../../target")
+    os.makedirs(test_results_directory, exist_ok=True)
     logging.config.fileConfig('logging.conf')
     logging.info('Running python_selenium_behave project...')
     with open('config.json') as config_file:
